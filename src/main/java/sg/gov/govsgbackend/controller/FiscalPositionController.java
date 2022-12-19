@@ -41,7 +41,7 @@ public class FiscalPositionController {
     public Page<FiscalPosition> getAllFiscalPositions(Pageable pageable){
         Page<FiscalPosition> fiscalPositionPage = fiscalPositionService.getAllFiscalPositions(pageable);
         List<FiscalPosition> fiscalPositions = fiscalPositionPage.getContent();
-        return new PageImpl<>(fiscalPositions, pageable, fiscalPositions.size());
+        return new PageImpl<>(fiscalPositions, pageable, fiscalPositionPage.getTotalElements());
     }
 
     @PutMapping("/{id}")
